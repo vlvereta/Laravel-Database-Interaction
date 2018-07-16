@@ -16,8 +16,8 @@ use Faker\Generator as Faker;
 
 $factory->define(Money::class, function (Faker $faker) {
     return [
-    	'currency_id' => $faker->numberBetween(1, 5),
+    	'currency_id' => $faker->numberBetween(1, count(DB::table('currency')->get())),
     	'amount' => $faker->randomFloat(6, 0, 799076),
-    	'wallet_id' => $faker->numberBetween(1, 10)
+    	'wallet_id' => $faker->numberBetween(1, count(DB::table('wallet')->get()))
     ];
 });
