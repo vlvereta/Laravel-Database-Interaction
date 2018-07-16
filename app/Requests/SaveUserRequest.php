@@ -10,13 +10,13 @@ class SaveUserRequest
 
     private $email;
 
-    public function __construct(?int $id, string $name, string $email) {
+    public function __construct($id, string $name, string $email) {
         $this->id = $id;
         $this->name = $name;
         $this->email = $email;
     }
 
-    public function getId(): ?int
+    public function getId()
     {
         return $this->id;
     }

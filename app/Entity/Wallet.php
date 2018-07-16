@@ -35,6 +35,11 @@ class Wallet extends Model
     }
 
     public function money() {
-        return $this->hasone('Money');
+        return $this->hasOne('Money');
+    }
+
+    public function currencies()
+    {
+        return $this->belongsToMany(Currency::class, 'money', 'wallet_id', 'currency_id');
     }
 }

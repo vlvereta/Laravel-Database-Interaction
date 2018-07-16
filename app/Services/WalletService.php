@@ -27,11 +27,6 @@ class WalletService implements WalletServiceInterface
 
     public function findCurrencies(int $walletId): Collection
     {
-        $currency = array();
-        $wallet = Money::where('wallet_id', $walletId)->get();
-        foreach ($wallet as $w) {
-            $currency[] = Currency::find($w->currency_id);
-        }
-        return collect($currency);
+        return Wallet::find($walletId)->currencies()->get();
     }
 }
