@@ -16,7 +16,7 @@ class CreateWalletTable extends Migration
         Schema::create('wallet', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('user')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('user');
             $table->softDeletes();
         });
     }
